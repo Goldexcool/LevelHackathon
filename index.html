@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ==================================== STYLE SHEET ================================================= -->
+    <link rel="stylesheet" href="./app.css">
+
+    <!-- ================================== FAVICON ======================================================== -->
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+
+    <!-- =================================== PROJECT TITLE ================================================== -->
+    <title>Level Upfront Hackathon</title>
+</head>
+
+<body>
+
+    <!-- ================================== TOP NAVIGATION BAR ========================================== -->
+    <header id="header">
+        <nav class="nav">
+            <img src="./Images/Group (5).svg" alt="shopify" class="componentlogo">
+            <img src="./Images/shopifyyy.svg" class="mobile"/>
+            <div class="search">
+                <img src="./Images/Icon.svg" alt="search" class="search-icon">
+                <input type="text" placeholder="search" class="search-input">
+            </div>
+            <div class="notification" id="notificationDrop">
+                <img src="./Images/Icons (1).svg" alt="notification" class="notification-icon" onclick="notificationDropDown()">
+                <img src="./Images/Norti (3).svg" class="norti_mobile" onclick="notificationDropDown()"/>
+                <img src="./Images/userrr.svg" class="user-mobile" onclick="userDropDown()"/>
+                <div class="user" onclick="userDropDown()">
+                    <p class="username">Davii Collections</p>
+                    <img src="./Images/Frame 5.svg" class="userprofile">
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ========================================= USER DROPDOWN ================================================== -->
+    <div class="userdropdown">
+        <div class="userdrop-wrapper">
+            <div class="store_user">
+                <div class="storeownername-">
+                    <img src="./Images/Frame 5.svg" alt="DC" />
+                    <h1 class="storename">Davii Collections</h1>
+                </div>
+                <img src="./Images/mark.svg" class="checkmark" />
+            </div>
+            <div class="store">
+                <img src="./Images/StoreMinor.svg" alt="cart" />
+                <h1 class="all-class">All stores</h1>
+            </div>
+            <ul class="store-info">
+                <li>Help Center</li>
+                <li>Changelog</li>
+                <li>Community forums</li>
+                <li>Hire a Shopify Partner</li>
+                <li>Keyboard shortcuts</li>
+            </ul>
+            <hr />
+            <div class="otheracct-info">
+                <div class="other-account">
+                    <h1 class="other-account-text">David Micheal</h1>
+                    <h2 class="acct-email">davidmicheal@gmail.com</h2>
+                </div>
+                <p class="manage">Manage account</p>
+                <h3 class="logout">Log out</h3>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ====================================== NOTIFICATION DROPDOWN ============================================= -->
+    <div class="notification-drop">
+        <div class="norti-drop-wrapper">
+            <div class="alerts">
+                <h1 class="alert-text">Alerts</h1>
+                <div class="notification-icons">
+                    <img src="./Images/gradeicon.svg" />
+                    <img src="./Images/circlecheck.svg" />
+                </div>
+            </div>
+            <div class="notification-text">
+                <p class="not-text">Alerts about your store and account will show here</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================= MAIN SECTION ==================================================== -->
+    <main class="main-section">
+        <!-- ======================== MAIN HEADER ============================= -->
+        <section class="sub-header" id="subHeaderSection">
+            <article class="sub-header-article">
+                <h1 class="sb-text">Extend your trial for $1/month for 3 months on select plans.</h1>
+                <div class="plan-btn--wrapper">
+                    <button class="plan-btn">Select a plan</button>
+                    <img src="./Images/Icons (2).svg" id="hideHeaderImage" />
+                </div>
+            </article>
+        </section>
+
+        <!-- ========================== SETUP GUIDE ==================================== -->
+        <section class="setup-guide">
+            <article class="setup-guide-article" onclick="toggleCustomizeContent(event)">
+                <div class="sg-wrapper">
+                    <h1 class="sg-text">Setup guide</h1>
+                    <img src="./Images/chevdown.svg" class="chevdown" />
+                </div>
+                <h2 class="sg-text-2">Use this personalized guide to get your store up and running.</h2>
+                <div class="completed">
+                    <p class="text-sg-3" id="completionText">0 / 5 completed</p>
+                    <div class="completion-graph">
+                        <div class="completion-increase" id="completionIncrease"></div>
+                    </div>
+                </div>            
+            </article>
+            
+            
+
+
+            <!-- ========================= DROPDOWN ==================================== -->
+
+            <!--========================= CUSTOMIZE ======================  -->
+            <article class="customize">
+                <div class="customize-wrapper">
+                    <div class="content-wrapper">
+                        <img src="./Images/Property 1=Dash.svg" id="dashImg"" />
+                        <div class="drop-down-customize">
+                            <h1 class="customize-text-1" data-dropdown="customizeDropdown" data-image="customizeImage"
+                                onclick="toggleDropdown(event, 'customizeDropdown', 'addProductIcon')">Customize your
+                                online store</h1>
+                            <div class="dropdown-customize" id="customizeDropdown">
+                                <p class="drop-text-1">Choose a theme and add your logo, colors, and images to reflect
+                                    your brand. <span>Learn more</span></p>
+                                <button class="customize-btn">Customize theme</button>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="./Images/Illustrations.svg" alt="" class="illustrations-image" id="customizeImage" />
+                </div>
+            </article>
+
+
+            <!-- ========================= ADD PRODUCTS ======================  -->
+            <article class="customize">
+                <div class="customize-wrapper">
+                    <div class="content-wrapper">
+                        <img src="./Images/Property 1=Dash.svg" id="dashImg1" " />
+                        <div class="drop-down-customize">
+                            <h1 class="customize-text-1"
+                                onclick="toggleDropdown('addProductDropdown', 'addProductImage')"
+                                data-dropdown="addProductDropdown" data-image="addProductImage">Add your first product
+                            </h1>
+                            <div class="dropdown-customize" id="addProductDropdown">
+                                <p class="drop-text-1">Write a description, add photos, and set pricing for the products
+                                    you plan to sell.
+                                    <span>Learn more</span>
+                                </p>
+                                <div class="addprobtn">
+                                    <button class="customize-btn">Add product</button>
+                                    <p>Import product</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="./Images/Add your first product.img.svg" alt="" class="illustrations-image"
+                        id="addProductImage" />
+                </div>
+            </article>
+
+
+
+            <!--========================= CUSTOM DOMAIN ======================  -->
+            <article class="custom">
+                <div class="customize-wrapper">
+                    <div class="content-wrapper">
+                        <img src="./Images/Property 1=Dash.svg" id="dashImg2" " />
+                        <div class="drop-down-customize">
+                            <h1 class="customize-text-1" onclick="toggleDropdown('customDropdown', 'customImage')"
+                                data-dropdown="customDropdown" data-image="customImage">Add a custom domain
+                            </h1>
+                            <div class="dropdown-customize" id="customDropdown">
+                                <p class="drop-text-1">Your current domain is 222219.myshopify.com but you can add a
+                                    custom
+                                    domain to help customers find your online store. <span>Learn more</span></p>
+                                <button class="customize-btn">Add domain</button>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="./Images/Add a custom domain.img (1).svg" alt="" class="illustrations-image"
+                        id="customImage" />
+                </div>
+            </article>
+
+
+            <!--========================= NAME YOUR STORE ======================  -->
+            <article class="name-store">
+                <div class="customize-wrapper">
+                    <div class="content-wrapper">
+                        <img src="./Images/Property 1=Dash.svg" id="dashImg3" " />
+                        <div class="drop-down-customize">
+                            <h1 class="customize-text-1" onclick="toggleDropdown('nameStoreDropdown', 'nameStoreImage')"
+                            data-dropdown="nameStoreDropdown" data-image="nameStoreImage">Name your store
+                            </h1>
+                            <div class="dropdown-customize" id="nameStoreDropdown">
+                                <p class="drop-text-1">Your temporary store name is currently Davii collections. The
+                                    store
+                                    name appears in your admin and your online store.<span>Learn more</span></p>
+                                <button class="customize-btn">Name store</button>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="./Images/Name your store.img.svg" alt="" class="illustrations-image"
+                        id="nameStoreImage" />
+                </div>
+            </article>
+            <!--========================= SETUP PAYMENT PROVIDER ======================  -->
+
+            <article class="payment">
+                <div class="customize-wrapper">
+                    <div class="content-wrapper">
+                        <img src="./Images/Property 1=Dash.svg" id="dashImg4"  />
+                        <div class="drop-down-customize">
+                            <h1 class="customize-text-1" onclick="toggleDropdown('paymentDropdown', 'paymentImage')"
+                            data-dropdown="paymentDropdown" data-image="paymentImage">Set up a payment provider</h1>
+                            <div class="dropdown-customize" id="paymentDropdown">
+                                <p class="drop-text-1">Choose a payment provider to start accepting payments. You’ll
+                                    need to
+                                    create an account with the payment provider and set it up with your Shopify
+                                    store.<span>Learn more</span></p>
+                                <button class="customize-btn">Set up payment</button>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="./Images/Set up a payment provider.img.svg" alt="" class="illustrations-image" id="paymentImage"/>
+                </div>
+            </article>
+        </section>
+    </main>
+</body>
+<!-- ================================ JAVASCRIPT ================================== -->
+<script src="./app.js"></script>
+
+</html>

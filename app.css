@@ -1,0 +1,945 @@
+/* ================================== GOOGLE FONTS ================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700&display=swap');
+
+/* ==================================== UNISERSAL STYLE=========================================== */
+:root {
+    --grey-fifty: #656266;
+    --grey-hundred: #616161;
+    --grey-two-hundred: #322F33;
+    --grey-three-hundred: #1C181D;
+    --font-color-light: #E3E3E3;
+    --font-color-mid: #E3E3E3;
+    --font-color-dark: #E3E3E3;
+    --grey-searchbar: #303030;
+    --layout: #E3E3E3;
+    --layout-s-hundred: #000000/7%;
+    --layout-s-hundred: #FFFFFF/20%;
+    --hover: #F7F7F7;
+    --dropdown-hover: #F1F1F1;
+    --searchbar-default: #616161;
+    --searchbar-hover: #E1E1E1;
+    --searchbar-pressed: #FFFFFF;
+    --pressed: #F0F0F0;
+    --focused: #005BD3;
+    --plain-white: #FFFFFF;
+    --background-color: #F1F1F1;
+    --button-default: #303030;
+    --button-hover: #2A2A2A;
+    --button-pressed: #1C1C1C;
+    --button-pressed-dropshadow: #333333;
+    --button-inner-shawow: #000000;
+    --top-navigation: #1A1A1A;
+    --font-dark: #323232;
+    --setupguide-border: #DBDBDB;
+    --button-bg-: #404040;
+    --button-font-color: #F6F3F6;
+
+
+    /*========== Font and typography ==========*/
+    --body-font: "Inter", sans-serif;
+    --biggest-font-size: 16px;
+    --h1-font-size: 14px;
+    --h2-font-size: 13px;
+    --h3-font-size: 12px;
+
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-bold: 700;
+
+    /*========== Margin Bottom ==========*/
+    --mb-0-5: 0.5rem;
+    --mb-0-75: 0.75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+    --mb-3: 3rem;
+
+    /*========== Margin Top ==========*/
+    --mt-0-5: 0.5rem;
+    --mt-0-75: 0.75rem;
+    --mt-1: 1rem;
+    --mt-1-5: 1.5rem;
+    --mt-2: 2rem;
+    --mt-2-5: 2.5rem;
+    --mt-3: 3rem;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+span {
+    color: var(--focused);
+}
+
+/* ================================ MAIN STYLE ============================================ */
+
+/* =================================== TOP NAVIGATION BAR ======================================== */
+#header {
+    max-width: 100%;
+    background-color: var(--top-navigation);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px 16px 12px 16px;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: var(--mb-0-5);
+    position: relative;
+}
+.mobile{
+    display: none;
+}
+.user-mobile{
+    display: none;
+}
+.search-icon {
+    position: absolute;
+    margin-left: -90%;
+}
+.norti_mobile{
+    display: none;
+}
+.search-input {
+    background-color: #000000;
+    border: none;
+    padding: 8px;
+    padding-right: 200px;
+    border-radius: 8px;
+    border: 1px solid var(--searchbar-default);
+    color: var(--plain-white);
+    padding-left: 40px;
+    font-size: var(--h3-font-size);
+}
+
+.search-input::placeholder {
+    font-size: var(--h3-font-size);
+}
+
+.notification {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 8px;
+    position: relative;
+}
+
+.user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: var(--mb-0-5);
+    padding: 2px 2px 2px 8px;
+    border-radius: 8px;
+    background-color: var(--grey-searchbar);
+    position: relative;
+    cursor: pointer;
+}
+
+.notification-icon {
+    padding: 8px;
+    border-radius: 8px;
+    background-color: var(--grey-searchbar);
+    cursor: pointer;
+}
+
+.username {
+    font-size: var(--h3-font-size);
+    font-weight: 500;
+    line-height: 15.6px;
+    color: var(--font-color-light);
+}
+
+/* =========================================== USER DROPDOWN ================================================== */
+.userdropdown {
+    position: absolute;
+    top: 64px;
+    right: 10px;
+    padding: 6px;
+    width: 320px;
+    /* height: 384px; */
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    row-gap: 7px;
+    background-color: var(--plain-white);
+    border-radius: 14px;
+    z-index: var(--z-fixed);
+    display: none;
+    animation-name: dropDownAnimation;
+    animation-duration: 0.8s;
+}
+
+.userdropdown.open {
+    display: block;
+    animation-name: dropDownAnimation;
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+}
+
+.userdrop-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    padding: 4px 12px 4px 8px;
+
+}
+
+@keyframes dropDownAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.store_user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.storeownername- {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 8px;
+}
+
+.storename {
+    font-size: var(--h2-font-size);
+    font-weight: 600;
+    color: var(--grey-searchbar);
+    line-height: 18.2px;
+}
+
+.store {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}
+
+.all-class {
+    font-size: var(--h2-font-size);
+    font-weight: 400;
+    line-height: 18.2px;
+    color: var(--grey-searchbar);
+}
+
+.store-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    font-size: var(--h2-font-size);
+    font-weight: 400;
+    line-height: 18.2px;
+    gap: 15px;
+    color: var(--grey-searchbar);
+}
+
+.otheracct-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.other-account {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.other-account-text {
+    font-size: var(--h2-font-size);
+    font-weight: 500;
+    line-height: 18.2px;
+    color: var(--grey-searchbar);
+}
+
+.acct-email {
+    font-size: var(--h3-font-size);
+    font-weight: 400;
+    line-height: 15.6px;
+    color: var(--grey-hundred);
+}
+
+.manage {
+    font-size: var(--h2-font-size);
+    font-weight: 400;
+    line-height: 18.2px;
+    color: var(--grey-searchbar);
+}
+
+.logout {
+    font-size: var(--h2-font-size);
+    font-weight: 400;
+    line-height: 18.2px;
+    color: var(--grey-searchbar);
+}
+.store-info li.active {
+    border: 2px solid var(--focused);
+    border-radius: 8px;
+    padding: 6px;
+
+}
+
+
+/* ====================================== NOTIFICATION DROP DOWN ================================================ */
+
+.notification-drop {
+    position: absolute;
+    top: 64px;
+    right: 10px;
+    border-radius: 14px;
+    border: 1px solid var(--setupguide-border);
+    width: 383px;
+    padding: 16px;
+    display: none; /* Remove this line */
+    flex-direction: column;
+    row-gap: 16px;
+    background-color: var(--plain-white);
+    animation-name: dropDownAnimation;
+    animation-duration: 0.8s;
+    z-index: var(--z-fixed);
+}
+
+
+.norti-drop-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+
+.alerts {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.alert-text {
+    font-size: var(--h1-font-size);
+    font-weight: 600;
+    line-height: 19.6px;
+    color: var(--grey-searchbar);
+}
+
+.notification-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 16px;
+}
+.notification-drop.open {
+    display: block;
+    animation-fill-mode: both;
+}
+
+.notification-text {
+    width: 351px;
+    height: 50px;
+    padding: 16px;
+    background-color: var(--dropdown-hover);
+}
+
+.not-text {
+    font-size: var(--h2-font-size);
+    line-height: 18.2px;
+    font-weight: 600;
+    color: var(--grey-hundred);
+}
+
+
+
+/* ================================= Main Section =============================================== */
+.main-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 100%;
+    margin-top: var(--mb-1-5);
+}
+
+.sub-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--top-navigation);
+    border-radius: 8px;
+}
+
+.sub-header-article {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
+    height: 56px;
+    padding: 12px 8px 12px 16px;
+}
+#hideHeaderImage{
+    cursor: pointer;
+}
+
+.sb-text {
+    font-size: var(--h2-font-size);
+    font-weight: 500;
+    line-height: 18.2px;
+    color: var(--font-color-light);
+}
+
+.plan-btn--wrapper {
+    display: flex;
+    justify-content: center;
+    column-gap: 8px;
+}
+
+.plan-btn {
+    padding: 6px 12px 6px 12px;
+    border-radius: 6px;
+    background-color: var(--plain-white);
+    color: var(--font-dark);
+    font-size: var(--h3-font-size);
+    border: none;
+}
+
+/* ==================================== SETUP GUIDE ===================================================== */
+.setup-guide {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 100%;
+    margin-top: var(--mb-1);
+    padding: 8px;
+    border: 1px solid var(--setupguide-border);
+    background-color: var(--plain-white);
+    border-radius: 18px;
+    row-gap: 16px;
+}
+
+.setup-guide-article {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 784px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.sg-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.sg-text {
+    font-size: var(--h2-font-size);
+    font-weight: 600;
+    line-height: 19.6px;
+    color: var(--grey-searchbar);
+}
+
+.setup-guide-article.up .chevdown {
+    transform: rotate(180deg);
+    /* Rotate the chevdown icon when the article is up */
+}
+
+.sg-text-2 {
+    font-size: var(--h2-font-size);
+    font-weight: 500;
+    line-height: 18.2px;
+    color: var(--grey-searchbar);
+}
+
+.completed {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    margin-top: 16px;
+}
+
+.text-sg-3 {
+    font-size: var(--h3-font-size);
+    font-weight: 400;
+    line-height: 18.2px;
+    color: var(--grey-searchbar);
+}
+
+.completion-graph {
+    width: 72px;
+    height: 4px;
+    border-radius: 8px;
+    background-color: var(--font-color-light);
+    overflow: hidden;
+}
+
+.completion-increase {
+    height: 100%;
+    border-radius: 8px;
+    background-color: var(--top-navigation);
+    transition: width 0.5s ease; /* Adjust the transition duration as needed */
+}
+#completionIncrease {
+    width: 0;
+    background-color: var(--top-navigation); /* Set your desired color */
+    height: 100%; /* Adjust the height as needed */
+}
+
+.chevdown {
+    transition: transform 0.3s ease; /* transition for a smooth effect */
+}
+
+.chevdown.up {
+    transform: rotate(180deg); /* To Rotate the chevdown image when "up" class is applied */
+}
+
+/* ================================================ CUSTOMIZE =================================================== */
+.customize, .add-product, .custom, .name-store, .payment {
+    overflow: hidden;
+    display: none; 
+    /* Hide the content */
+    transition: display 1s ease-in-out;
+}
+
+.customize.open, .add-product.open, .custom.open, .name-store.open, .payment.open {
+    display: block; 
+    /* Show the content */
+    transition: display 1s ease-in-out;
+}
+.customize-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+.content-wrapper{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    column-gap: 6px;
+}
+.drop-down-customize{
+    display: flex;
+    flex-direction: column;
+    margin-top: 4px;
+    row-gap: 16px;
+}
+.customize-text-1{
+    font-size: var(--h2-font-size);
+    font-weight: 600;
+    line-height: 18.2px;
+    color: var(--grey-searchbar);
+    cursor: pointer;
+}
+.dropdown-customize {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+.drop-text-1 {
+    font-size: var(--h1-font-size);
+    font-weight: 500;
+    line-height: 19.6px;
+    color: var(--grey-hundred);
+    width: 483.86px;
+}
+.addprobtn {
+    display: flex;
+    column-gap: 16px;
+    align-items: center;
+}
+.customize-btn {
+    padding: 6px 12px 6px 12px;
+    border-radius: 6px;
+    border: 1.5px 1.5px 0px 1.5px solid var(--button-pressed-dropshadow);
+    background-color: var(--button-bg-);
+    color: var(--button-font-color);
+    width: 30%;
+    height: 28px;
+    box-shadow: var(--button-pressed-dropshadow);
+}
+
+.addprobtn p {
+    font-size: var(--h3-font-size);
+    font-weight: 600;
+    line-height: 15.6px;
+    color: var(--font-dark);
+}
+
+.dropdown-customize {
+    display: none;
+    /* Add any other styles you need for the closed state */
+}
+
+.dropdown-customize.open {
+    display: block;
+    /* Add any other styles you need for the open state */
+}
+
+.illustrations-image {
+    display: none;
+    /* Add any styles you need for the closed state */
+}
+
+.illustrations-image.open {
+    display: block;
+    /* Add any other styles you need for the open state */
+}
+
+/* Add this style at the end of your existing CSS */
+
+/* =================================== CUSTOMIZE ANIMATION ====================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+
+/* =================================== SETUP GUIDE ARTICLE ANIMATION =========================== */
+.setup-guide-article.open {
+    animation-name: fadeIn;
+    animation-duration: 0.8s;
+}
+
+.setup-guide-article.close {
+    animation-name: fadeOut;
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+}
+
+/* ==================================== CUSTOMIZE =================================================== */
+/* Updated styles for Customize section */
+.customize.open,
+.add-product.open,
+.custom.open,
+.name-store.open,
+.payment.open {
+    display: flex;
+    transition: display 1s ease-in-out;
+    animation-name: fadeIn;
+    animation-duration: 0.8s;
+}
+
+
+.customize-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    width: 100%;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    column-gap: 6px;
+}
+
+.drop-down-customize {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4px;
+    row-gap: 16px;
+}
+
+.customize-text-1 {
+    font-size: var(--h2-font-size);
+    font-weight: 600;
+    line-height: 18.2px;
+    color: var(--grey-searchbar);
+    cursor: pointer;
+}
+
+.dropdown-customize {
+    display: none;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.dropdown-customize.open {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    max-height: 500px; /* Adjust the max-height based on your content */
+    opacity: 1;
+}
+.customize.active,
+.custom.active,
+.name-store.active,
+.payment.active {
+    background-color: black;  /* Add any styles you want for the active state */
+}
+
+.illustrations-image {
+    display: none;
+}
+
+.illustrations-image.open {
+    display: block;
+}
+.dropdown-customize{
+    max-height: 0;
+    overflow: hidden;
+}
+.customize-text-1.open .drop-down-customize{ 
+    max-height: 300px;
+}
+.content-wrapper img{
+    cursor: pointer;
+}
+.payment{
+    margin-bottom: .5rem;
+}
+
+
+/* Responsiveness */
+@media (min-width: 280px) and (max-width: 420px) {
+    .nav{
+        padding: 8px 10px 8px 10px;
+    }
+    .user{
+        display: none;
+    }
+    .search-input{
+    padding-right: 0px;
+    }
+    .user-mobile{
+        display: block;
+    }
+    .norti_mobile{
+        display: block;
+    }
+    .notification-icon{
+        display: none;
+    }
+    .mobile{
+        display: block ;
+    }
+    .sub-header-articl{
+        width: 97%;
+    }
+    .drop-text-1 {
+        width: 260px;
+    }
+    .illustrations-image{
+       visibility: hidden;
+    }
+    .customize-btn{
+        width: 100%;
+    }
+    .sub-header-article{
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        width: 100%;
+        height: auto;
+    }
+    .plan-btn--wrapper {
+        margin-top: .4rem;
+    }
+    .setup-guide-article{
+        width: 100%;
+    }
+    .componentlogo{
+        display: none;
+    }
+    .notification-drop {
+        width: 100%;
+        margin: 0 auto ;
+        right: 0;
+    }
+
+    .notification-text{
+        width: 100%;
+    }
+    .userdropdown {
+        width: 100%;
+        right: 0;
+    }
+
+}
+@media (min-width: 421px) and (max-width: 600px) {
+    .nav{
+        padding: 8px 10px 8px 10px;
+    }
+    .user{
+        display: none;
+    }
+    .search-input{
+    padding-right: 0px;
+    }
+    .user-mobile{
+        display: block;
+    }
+    .norti_mobile{
+        display: block;
+    }
+    .notification-icon{
+        display: none;
+    }
+    .mobile{
+        display: block ;
+    }
+    .sub-header-articl{
+        width: 97%;
+    }
+    .drop-text-1 {
+        width: 326px;
+    }
+    .customize-btn{
+        width: 50%;
+    }
+    .sub-header-article{
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        width: 420px;
+        height: auto;
+    }
+    .illustrations-image{
+        visibility: hidden;
+     }
+    .setup-guide{
+        width: 95%;
+    }
+    .plan-btn--wrapper {
+        margin-top: .4rem;
+    }
+    .setup-guide-article{
+        width: 100%;
+    }
+    .componentlogo{
+        display: none;
+    }
+    .notification-drop {
+        width: 100%;
+        margin: 0 auto ;
+        right: 0;
+    }
+
+    .notification-text{
+        width: 100%;
+    }
+    .userdropdown {
+        width: 100%;
+        right: 0;
+    }
+}
+@media (min-width: 601px) and (max-width: 800px) {
+    .nav{
+        padding: 8px 10px 8px 10px;
+    }
+    .user{
+        display: none;
+    }
+    .search-input{
+    padding-right: 0px;
+    }
+    .user-mobile{
+        display: block;
+    }
+    .norti_mobile{
+        display: block;
+    }
+    .notification-icon{
+        display: none;
+    }
+    .mobile{
+        display: block ;
+    }
+    .sub-header-articl{
+        width: 97%;
+    }
+    .drop-text-1 {
+        width: 326px;
+    }
+    .customize-btn{
+        width: 50%;
+    }
+    .sub-header-article{
+        /* flex-direction: column; */
+        justify-content: space-between;
+        align-items: center;
+        max-width: 100%;
+        width: 600px;
+        height: auto;
+    }
+    
+    .setup-guide{
+        width: 100%;
+    }
+    .plan-btn--wrapper {
+        margin-top: .4rem;
+    }
+    .setup-guide-article{
+        width: 100%;
+    }
+    .componentlogo{
+        display: none;
+    }
+    .notification-drop {
+        width: 100%;
+        margin: 0 auto ;
+        right: 0;
+    }
+
+    .notification-text{
+        width: 100%;
+    }
+    .userdropdown {
+        width: 100%;
+        right: 0;
+    }
+}
